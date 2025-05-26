@@ -22,15 +22,13 @@ function Weather() {
       import.meta.env.VITE_APP_ID
     }&q=${city}`;
 
-    try
-    {
+    try {
       const response = await fetch(url);
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log(data);
 
-    setWeatherData(
-      {
+      setWeatherData({
         humidity: data.current.humidity,
         wind: data.current.wind_kph,
         location: data.location.name,
@@ -39,15 +37,11 @@ function Weather() {
         condition_icon: data.current.condition.icon,
         temperature: data.current.temp_c,
         feels_like: data.current.feelslike_c,
-        icon: 'https:' + data.current.condition.icon,     }
-    );
-
-    } catch (error){
-
+        icon: "https:" + data.current.condition.icon,
+      });
+    } catch (error) {
       console.error(error);
-
     }
-    
   };
 
   useEffect(() => {
@@ -65,34 +59,41 @@ function Weather() {
         />
       </div>
 
-      {
-        weatherData ?(
+      {weatherData ? (
         <>
-        <img src={weather_icon} alt="condition" className="weather-icon" />
-        <p className="temperature">30°</p>
-        <p className="location">Rajshahi,Bangladesh</p>
-        <p className="condition">Cloudy</p>
-        <p className="feels-like">Feel like 35°</p>
+          <img
+            src={weatherData.condition_icon}
+            alt="condition"
+            className="weather-icon"
+          />
+          <p className="temperature">{weatherData.temperature}°</p>
+          <p className="location">
+            {weatherData.location}, {weatherData.country}
+          </p>
+          <p className="condition">{weatherData.condition}</p>
+          <p className="feels-like">Feels like {weatherData.feels_like}°</p>
 
-        <div className="weather-data">
-          <div className="col">
-            <img src={humidity_icon} alt="Humidity" />
-            <div>
-              <p>
-                60% <span>Humidity</span>
-              </p>
+          <div className="weather-data">
+            <div className="col">
+              <img src={humidity_icon} alt="Humidity" />
+              <div>
+                <p>
+                  {weatherData.humidity}% <span>Humidity</span>
+                </p>
+              </div>
+            </div>
+            <div className="col">
+              <img src={wind_icon} alt="Wind" />
+              <div>
+                <p>
+                  {weatherData.wind} km/h <span>Wind Speed</span>
+                </p>
+              </div>
             </div>
           </div>
-          <div className="col">
-            <img src={wind_icon} alt="Wind" />
-            <div>
-              <p>
-                15 km/h <span>Wind Speed</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </>): (<p>Loading........</p>
+        </>
+      ) : (
+        <p>Loading........</p>
       )}
     </div>
   );
