@@ -1,16 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
+
+/* GLOBAL RESET */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
   color: rgb(245, 245, 246);
 }
 
-.app{
+/* BODY STYLES */
+body {
+  background-color: #4e71ff;
+  background-image: linear-gradient(160deg, #4e71ff, #8dd8ff 100%);
   min-height: 100vh;
   display: grid;
-  background-color: #4e71ff;
-  background-image: linear-gradient(160deg, #4e71ff, #4e71ff 0%, #8dd8ff 100%);
+  place-items: center;
+  overflow-x: hidden;
+}
 
+/* APP WRAPPER */
+.app {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  display: grid;
+  place-items: center;
 }

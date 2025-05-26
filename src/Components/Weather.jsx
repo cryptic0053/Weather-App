@@ -26,7 +26,10 @@ function Weather() {
       const response = await fetch(url);
 
       const data = await response.json();
-      console.log(data);
+      if (data.error) {
+        alert("City not found");
+        return;
+      }
 
       setWeatherData({
         humidity: data.current.humidity,
@@ -45,7 +48,7 @@ function Weather() {
   };
 
   useEffect(() => {
-    getWeatherData("Dhaka");
+    getWeatherData("Rajshahi");
   }, []);
 
   return (
