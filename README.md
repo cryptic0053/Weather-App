@@ -58,23 +58,6 @@ Open `http://localhost:5173` in your browser to view it.
 
 ---
 
-## 📁 Folder Structure
-
-```
-Weather-App/
-├── public/
-├── src/
-│   ├── assets/              # Static icons/images
-│   ├── Components/
-│   │   └── Weather.jsx      # Main component
-│   ├── App.jsx              # Root component
-│   ├── App.css              # Global styles
-│   └── main.jsx             # Entry point for React + Vite
-├── .env                     # API key environment variable
-├── package.json
-└── vite.config.js
-```
-
 ---
 
 ## 🙏 Acknowledgements
