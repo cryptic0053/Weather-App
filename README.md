@@ -58,6 +58,10 @@ Open `http://localhost:5173` in your browser to view it.
 
 ---
 
+## 📸 Live Demo
+
+🌐 [Click here to view the live app](https://weather-app-kappa-seven-97.vercel.app/)
+
 ---
 
 ## 🙏 Acknowledgements
